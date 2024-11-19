@@ -13,7 +13,7 @@
         "breakpoints": {
           "exception": {
             "raised": "",
-            "uncaught": "Y",
+            "uncaught": "N",
             "userUnhadled": "N"
           }
         }
