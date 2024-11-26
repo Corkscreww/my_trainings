@@ -33,7 +33,6 @@
 #         if seq[i] >= seq[i + 1]:
 #             return False
 #     return True
-    
 
 # def wasc(seq):
 #     for i in range(len(seq) - 1):
@@ -100,4 +99,105 @@
 
 # with open('output.txt', 'w', encoding='utf-8') as out_f:
 #     print(minimum_dif(seq, numb), file=out_f)
+
+'''D. Больше своих соседей'''
+
+# def neigh_emount(seq):
+#     count = 0
+#     for i in range(1, len(seq) - 1):
+#         if seq[i] > seq[i - 1] and seq[i] > seq[i + 1]:
+#             count += 1
+#     return count
+
+# with open('input.txt', encoding='utf-8') as inp_file:
+#     seq = list(map(int, inp_file.read().strip().split()))
+
+# with open('output.txt', 'w', encoding='utf-8') as out_f:
+#     print(neigh_emount(seq), file=out_f)
+
+'''E. Чемпионат по метанию коровьих лепёшек'''
+
+pass
+
+'''G. Наибольшее произведение двух чисел'''
+
+# def result(seq):
+#     seq.sort()
+#     result = (seq[:2]) + (seq[-2:])
+#     return seq[:2] if seq[0] * seq[1] > seq[-2] * seq[-1] else seq[-2:]
+
+# with open('input.txt', encoding='utf-8') as inp_file:
+#     seq = list(map(int, inp_file.read().strip().split()))
+
+# pass
+
+# with open('output.txt', 'w', encoding='utf-8') as out_f:
+#     print(*result(seq), file=out_f)
+
+'''H. Наибольшее произведение трех чисел'''
+
+# def result(seq):
+#     seq.sort()
+#     result = (seq[:3]) + (seq[-3:])
+#     return (
+#         seq[:3]
+#         if seq[0] * seq[1] * seq[2] > seq[-3] * seq[-2] * seq[-1]
+#         else seq[-3:]
+#     )
+
+# with open('input.txt', encoding='utf-8') as inp_file:
+#     seq = list(map(int, inp_file.read().strip().split()))
+
+# pass
+
+# with open('output.txt', 'w', encoding='utf-8') as out_f:
+#     print(*result(seq), file=out_f)
+
+'''I. Сапер'''
+
+# def field_create(field, mines):
+#     field = [[0 for _ in range(field[1])] for _ in range(field[0])]
+#     for i, j in mines:
+#         field[i - 1][j - 1] = '*'
+#         pass
+#     return field
+
+# def coord_check(i, j, field):
+#     if i < 0 or j < 0 or i == len(field) or j == len(field[0]):
+#         return True
+
+# def field_mins_count(field):
+#     coord_dpl = ((-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0),
+#                  (1, 1))
+
+#     for i in range(len(field)):
+#         for j in range(len(field[0])):
+#             if field[i][j] != '*':
+#                 count = 0
+#                 for x, y in coord_dpl:
+#                     di, dj = i, j
+#                     di += x
+#                     dj += y
+#                     if coord_check(di, dj, field):
+#                         continue
+                    
+#                     if field[di][dj] == '*':
+#                         count += 1
+#                 field[i][j] = count
+#     return field
+
+# with open('input.txt', encoding='utf-8') as inp_file:
+#     field = tuple(map(int, inp_file.readline().strip().split()))
+#     mines = tuple(tuple(map(int, row.strip().split())) for row in
+#                   inp_file.readlines())
+
+# field = field_create(field, mines)
+# field = field_mins_count(field)
+
+# with open('output.txt', 'w', encoding='utf-8') as out_file:
+#     for row in field:
+#         print(*row, file=out_file)
+
+'''J. Треугольник Максима'''
+
 
